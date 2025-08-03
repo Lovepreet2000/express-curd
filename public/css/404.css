@@ -1,0 +1,31 @@
+.notfound-container {
+  max-width: 400px;
+  margin: 80px auto;
+  background: #fff;
+  padding: 40px 24px 30px 24px;
+  border-radius: 12px;
+  box-shadow: 0 4px 24px rgba(0,0,0,0.10);
+  text-align: center;
+}
+.notfound-container h1 {
+  font-size: 72px;
+  color: #e53935;
+  margin-bottom: 18px;
+  font-weight: 900;
+}
+.notfound-container p {
+  font-size: 18px;
+  color: #333;
+  margin-bottom: 24px;
+}
+.back-link {
+  display: inline-block;
+  color: #1976d2;
+  text-decoration: none;
+  font-weight: 600;
+  font-size: 16px;
+  margin-top: 10px;
+}
+.back-link:hover {
+  text-decoration: underline;
+}
