@@ -3,9 +3,21 @@ import Users from "../models/User.modal.js";
 
 export const getUsers = async (req, res) => {
   try {
-    const users = await Users.find();
+    const { page = 1, limit = 5 } = req.query;
+    const result = await Users.paginate({}, { page, limit });
 
-    res.render("users", { users });
+    res.render("users", {
+      totalUsers: result?.totalDocs,
+      limit: result?.limit,
+      totalPages: result?.totalPages,
+      currentPage: result?.page,
+      pagingCounter: result?.pagingCounter,
+      hasPrevPage: result?.hasPrevPage,
+      hasNextPage: result?.hasNextPage,
+      prevPage: result?.prevPage,
+      nextPage: result?.nextPage,
+      docs: result?.docs,
+    });
   } catch (err) {
     console.error("error fetching users:", err);
 

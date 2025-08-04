@@ -1,4 +1,5 @@
 import mongoose from "mongoose";
+import mongoosePaginate from "mongoose-paginate-v2";
 const userSchema = mongoose.Schema({
   name: {
     type: String,
@@ -16,5 +17,7 @@ const userSchema = mongoose.Schema({
     trim: true,
   },
 });
+
+userSchema.plugin(mongoosePaginate);
 
 export default mongoose.model("User", userSchema);

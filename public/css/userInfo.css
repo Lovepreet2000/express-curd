@@ -98,6 +98,38 @@ tr:hover {
 .delete-btn:hover {
   background: linear-gradient(90deg, #b71c1c 0%, #e53935 100%);
 }
+.pagination {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin: 28px 0 10px 0;
+  gap: 6px;
+}
+.page-btn {
+  background: #e3eafc;
+  color: #1976d2;
+  border: none;
+  padding: 8px 16px;
+  border-radius: 5px;
+  font-size: 15px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: background 0.2s, color 0.2s;
+}
+.page-btn.active {
+  background: #1976d2;
+  color: #fff;
+  box-shadow: 0 2px 8px rgba(25,118,210,0.08);
+}
+.page-btn:disabled {
+  background: #f4f8fb;
+  color: #aaa;
+  cursor: not-allowed;
+}
+.page-btn:hover:not(:disabled):not(.active) {
+  background: #bbdefb;
+  color: #0d47a1;
+}
 @media (max-width: 600px) {
   .container {
     padding: 10px 2px;

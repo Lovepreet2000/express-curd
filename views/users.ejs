@@ -4,7 +4,7 @@
 <head>
   <title>Users Listing</title>
   <link href="https://fonts.googleapis.com/css?family=Roboto:400,700&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="/css/userInfo.css"><!-- Added stylesheet -->
+  <link rel="stylesheet" href="/css/userInfo.css">
 </head>
 <body>
   <div class="container">
@@ -21,9 +21,9 @@
         </tr>
       </thead>
       <tbody>
-        <% users?.forEach((user, index) => { %>
+        <% docs.forEach((user, index) => { %>
           <tr>
-            <td><%= index + 1 %></td>
+            <td><%= (limit * (currentPage - 1)) + index + 1 %></td>
             <td><%= user.name %></td>
             <td><%= user.class %></td>
             <td><%= user.rollNo %></td>
@@ -40,8 +40,15 @@
             </td>
           </tr>
         <% }) %>
-      </tbody>
+      </tbody>  
     </table>
+    <div class="pagination">
+      <button class="page-btn" <%= currentPage === 1 ? "disabled" : "" %> onclick="window.location.href='?page=<%= currentPage - 1 %>'">Previous</button>
+      <% for(let i = 1; i <= totalPages; i++) { %>
+        <button class="page-btn <%= currentPage === i ? 'active' : '' %>" onclick="window.location.href='?page=<%= i %>'"><%= i %></button>
+      <% } %>
+      <button class="page-btn" <%= currentPage === totalPages ? "disabled" : "" %> onclick="window.location.href='?page=<%= currentPage + 1 %>'">Next</button>
+    </div>
   </div>
 </body>
 </html>
